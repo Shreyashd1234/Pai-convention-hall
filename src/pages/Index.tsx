@@ -1,12 +1,53 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from "react";
+import Navbar from "../components/Navbar";
+import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
+import CeremoniesSection from "../components/CeremoniesSection";
+import GallerySection from "../components/GallerySection";
+import TestimonialsSection from "../components/TestimonialsSection";
+import AmenitiesSection from "../components/AmenitiesSection";
+import LocationSection from "../components/LocationSection";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 const Index = () => {
+  useEffect(() => {
+    // Initialize scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.scroll-animation').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => {
+      // Clean up observer on component unmount
+      document.querySelectorAll('.scroll-animation').forEach((el) => {
+        observer.unobserve(el);
+      });
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <CeremoniesSection />
+      <GallerySection />
+      <TestimonialsSection />
+      <AmenitiesSection />
+      <LocationSection />
+      <ContactSection />
+      <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 };
