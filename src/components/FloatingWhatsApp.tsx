@@ -1,5 +1,5 @@
 
-import { Phone } from "lucide-react";
+import { WhatsApp } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 
 export default function FloatingWhatsApp() {
@@ -7,7 +7,7 @@ export default function FloatingWhatsApp() {
     <div className="sticky-whatsapp">
       <WhatsAppButton
         phoneNumber="918431157922"
-        className="shadow-lg"
+        className="shadow-xl rounded-full animate-pulse-slow"
       />
     </div>
   );

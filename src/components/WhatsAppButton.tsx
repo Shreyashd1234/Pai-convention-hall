@@ -1,5 +1,5 @@
 
-import { Phone } from "lucide-react";
+import { WhatsApp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface WhatsAppButtonProps {
@@ -21,9 +21,9 @@ export default function WhatsAppButton({
   return (
     <Button 
       onClick={handleClick}
-      className={`bg-green-500 hover:bg-green-600 text-white font-medium flex items-center gap-2 ${className}`}
+      className={`bg-[#25D366] hover:bg-[#20BD5C] text-white font-medium flex items-center gap-2 shadow-lg pulse-animation ${className}`}
     >
-      <Phone className="h-5 w-5" />
+      <WhatsApp className="h-5 w-5" />
       <span>WhatsApp Us</span>
     </Button>
   );
