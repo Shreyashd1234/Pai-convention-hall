@@ -1,24 +1,63 @@
-
 import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 interface GalleryImage {
   id: number;
-  src: string;
   category: string;
   alt: string;
+  image: string;
 }
 
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: "/images/gallery-1.jpg", category: "Decoration", alt: "Elegant table setting" },
-  { id: 2, src: "/images/gallery-2.jpg", category: "Wedding", alt: "Wedding ceremony" },
-  { id: 3, src: "/images/gallery-3.jpg", category: "Reception", alt: "Reception hall" },
-  { id: 4, src: "/images/gallery-4.jpg", category: "Decoration", alt: "Floral arrangements" },
-  { id: 5, src: "/images/gallery-5.jpg", category: "Haldi", alt: "Haldi ceremony" },
-  { id: 6, src: "/images/gallery-6.jpg", category: "Mehendi", alt: "Mehendi celebration" },
-  { id: 7, src: "/images/gallery-7.jpg", category: "Wedding", alt: "Wedding decor" },
-  { id: 8, src: "/images/gallery-8.jpg", category: "Reception", alt: "Evening reception" }
+  {
+    id: 1,
+    category: "Decoration",
+    alt: "Elegant table setting",
+    image: "https://images.unsplash.com/photo-1618070180684-e66a1f6a309b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 2,
+    category: "Wedding",
+    alt: "Wedding ceremony",
+    image: "https://images.unsplash.com/photo-1523400971624-5cc86c3a3edc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 3,
+    category: "Reception",
+    alt: "Reception hall setup",
+    image: "https://images.unsplash.com/photo-1520854221256-c2f0b307b63d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 4,
+    category: "Decoration",
+    alt: "Stage decoration",
+    image: "https://images.unsplash.com/photo-1521334346118-e4f361df8d0b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 5,
+    category: "Haldi",
+    alt: "Haldi ceremony setup",
+    image: "https://images.unsplash.com/photo-1610560373521-eb2cf29d061f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 6,
+    category: "Mehendi",
+    alt: "Mehendi function",
+    image: "https://images.unsplash.com/photo-1575544712856-357207e9b7ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 7,
+    category: "Wedding",
+    alt: "Wedding mandap",
+    image: "https://images.unsplash.com/photo-1587903081971-4c8f96d1f957?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 8,
+    category: "Reception",
+    alt: "Reception stage",
+    image: "https://images.unsplash.com/photo-1524250593659-efa838174715?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
 ];
 
 const categories = ["All", ...new Set(galleryImages.map(img => img.category))];
@@ -26,7 +65,6 @@ const categories = ["All", ...new Set(galleryImages.map(img => img.category))];
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [filteredImages, setFilteredImages] = useState(galleryImages);
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   
   useEffect(() => {
     if (activeCategory === "All") {
@@ -39,16 +77,16 @@ export default function GallerySection() {
   return (
     <section id="gallery" className="section-padding bg-ivory">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 scroll-animation">
           <h2 className="text-3xl md:text-4xl font-serif">Our Gallery</h2>
           <div className="w-24 h-1 bg-gold mx-auto my-4"></div>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            Explore our collection of beautiful moments captured at Elegance Hall.
+            Explore our collection of beautiful moments captured at PAI Convention Hall.
           </p>
         </div>
         
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 scroll-animation" style={{ animationDelay: "0.2s" }}>
           {categories.map((category) => (
             <Button
               key={category}
@@ -63,27 +101,32 @@ export default function GallerySection() {
         
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {filteredImages.map((image) => (
+          {filteredImages.map((image, index) => (
             <Dialog key={image.id}>
               <DialogTrigger asChild>
-                <div className="relative h-64 overflow-hidden rounded-lg cursor-pointer hover-scale">
+                <div 
+                  className="relative h-64 overflow-hidden rounded-lg cursor-pointer hover-scale scroll-animation"
+                  style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                >
                   <img 
-                    src={image.src} 
+                    src={image.image} 
                     alt={image.alt} 
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="text-white font-medium">{image.category}</span>
-                  </div>
+                  <div className="ceremony-overlay">
+                     <span className="text-white text-lg">View Details</span>
+                   </div>
                 </div>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[800px]">
                 <div className="w-full">
-                  <img 
-                    src={image.src} 
-                    alt={image.alt} 
-                    className="w-full h-auto rounded-md"
-                  />
+                  <div className="aspect-video overflow-hidden rounded-md">
+                    <img 
+                      src={image.image} 
+                      alt={image.alt}
+                      className="w-full h-full object-cover" 
+                    />
+                  </div>
                   <p className="mt-2 text-center">{image.alt} - {image.category}</p>
                 </div>
               </DialogContent>

@@ -1,49 +1,35 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import WhatsAppButton from "./WhatsAppButton";
 
-const images = [
-  "/images/wedding-hall-1.jpg", 
-  "/images/wedding-hall-2.jpg",
-  "/images/wedding-hall-3.jpg"
-];
-
 export default function HeroSection() {
-  const [currentImage, setCurrentImage] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Image slider effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000);
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-    return () => clearInterval(interval);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
-  
+
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden">
-      {/* Background Images */}
-      {images.map((img, index) => (
-        <div 
-          key={img}
-          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out bg-cover bg-center bg-no-repeat ${
-            currentImage === index ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            backgroundImage: `url(${img})`,
-          }}
-        />
-      ))}
-      
-      {/* Dark overlay */}
+    <section id="home" className="relative h-screen w-full overflow-hidden bg-charcoal">
+      {/* Dark overlay (can keep or remove depending on desired look with solid background) */}
       <div className="absolute inset-0 bg-black/40"></div>
       
       {/* Content */}
-      <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center text-white px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mb-4 animate-fade-in">
-          Celebrate Your Special Moments at <br />
-          <span className="text-gold">Elegance Hall</span>
+          Where celebrations come to life in style and comfort <br />
+          <span className="text-gold">Pai Convention Hall</span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 max-w-2xl animate-slide-in">
           Elegant. Spacious. Memorable.

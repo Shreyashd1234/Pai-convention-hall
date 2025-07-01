@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,11 +22,29 @@ export default function ContactSection() {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    
+    // Create WhatsApp message with form details
+    const whatsappMessage = `New Inquiry from Website:
+    
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Event Type: ${formData.eventType}
+Event Date: ${formData.date}
+Message: ${formData.message}`;
+
+    // Encode the message for WhatsApp URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Open WhatsApp with the message
+    window.open(`https://wa.me/918431157922?text=${encodedMessage}`, '_blank');
+    
+    // Show success toast
     toast({
       title: "Inquiry Submitted!",
       description: "We'll get back to you as soon as possible.",
     });
+    
     // Reset form
     setFormData({
       name: "",
@@ -42,7 +59,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="section-padding bg-white">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 scroll-animation">
           <h2 className="text-3xl md:text-4xl font-serif">Contact Us</h2>
           <div className="w-24 h-1 bg-gold mx-auto my-4"></div>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
@@ -50,10 +67,10 @@ export default function ContactSection() {
           </p>
         </div>
         
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto scroll-animation" style={{ animationDelay: "0.2s" }}>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
+              <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.3s" }}>
                 <Label htmlFor="name">Name</Label>
                 <Input 
                   id="name"
@@ -65,7 +82,7 @@ export default function ContactSection() {
                 />
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.4s" }}>
                 <Label htmlFor="email">Email</Label>
                 <Input 
                   id="email"
@@ -78,7 +95,7 @@ export default function ContactSection() {
                 />
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.5s" }}>
                 <Label htmlFor="phone">Phone</Label>
                 <Input 
                   id="phone"
@@ -90,7 +107,7 @@ export default function ContactSection() {
                 />
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.6s" }}>
                 <Label htmlFor="eventType">Event Type</Label>
                 <select
                   id="eventType"
@@ -110,7 +127,7 @@ export default function ContactSection() {
                 </select>
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.7s" }}>
                 <Label htmlFor="date">Event Date</Label>
                 <Input 
                   id="date"
@@ -124,7 +141,7 @@ export default function ContactSection() {
               </div>
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.8s" }}>
               <Label htmlFor="message">Message</Label>
               <textarea
                 id="message"
@@ -138,7 +155,7 @@ export default function ContactSection() {
               ></textarea>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center scroll-animation" style={{ animationDelay: "0.9s" }}>
               <Button type="submit" className="bg-gold hover:bg-gold/90" size="lg">
                 Submit Inquiry
               </Button>

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
@@ -25,7 +24,7 @@ export default function Footer() {
       <div className="container mx-auto py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-2xl font-serif text-gold">Elegance Hall</h3>
+            <h3 className="text-2xl font-serif text-white">PAI Convention Hall</h3>
             <p className="text-gray-300">
               Where every celebration becomes an unforgettable memory. Luxury meets tradition in our elegant spaces.
             </p>
@@ -45,25 +44,24 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-xl font-medium">Contact Info</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>123 Wedding Hall Road</li>
-              <li>Bangalore, Karnataka 560001</li>
-              <li>+91 8431157922</li>
-              <li>bookings@elegancehall.com</li>
+              <li>Behind Nagshanti Showroom</li>
+              <li>Udyambag,Belgaum, Karnataka 590008</li>
+              <li>+91 95916 99558</li>
+              <li>bookings@paiconventionhall.com</li>
             </ul>
           </div>
           
           <div className="space-y-4">
             <h4 className="text-xl font-medium">Newsletter</h4>
-            <p className="text-gray-300">Subscribe for updates and special offers</p>
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <Input 
+            <form onSubmit={handleSubscribe} className="space-y-2">
+              <Input
+                type="email"
                 name="email"
-                type="email" 
-                placeholder="Your email" 
-                className="bg-gray-800 border-gray-700" 
+                placeholder="Enter your email"
+                className="bg-gray-800 border-gray-700 text-white"
                 required
               />
-              <Button type="submit" className="bg-gold hover:bg-gold/90">
+              <Button type="submit" className="w-full bg-gold hover:bg-gold/90">
                 Subscribe
               </Button>
             </form>
@@ -71,7 +69,8 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Elegance Hall. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} PAI Convention Hall. All rights reserved.</p>
+          
         </div>
       </div>
     </footer>

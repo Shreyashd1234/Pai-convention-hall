@@ -63,12 +63,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Custom color palette for our wedding hall theme
-				ivory: "#FFF8F0",
-				gold: "#D4AF37",
-				blush: "#F9E1E0",
-				charcoal: "#2F2F2F",
-				brown: "#6E4B3A", 
-				green: "#B8C5A8",
+				ivory: "#F6F1E7",
+				gold: "#8C4B3E",
+				blush: "#D29B84",
+				charcoal: "#2E1F1C",
+				brown: "#8C4B3E", 
+				green: "#F6F1E7",
 			},
 			fontFamily: {
 				serif: ['DM Serif Display', 'serif'],

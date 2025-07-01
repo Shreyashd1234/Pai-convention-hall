@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 interface Ceremony {
   id: number;
@@ -51,11 +51,21 @@ const ceremonies: Ceremony[] = [
 
 export default function CeremoniesSection() {
   const [selectedCeremony, setSelectedCeremony] = useState<Ceremony | null>(null);
+  const [open, setOpen] = useState(false);
+  
+  const handleBookNow = () => {
+    setOpen(false);
+    setTimeout(() => {
+      document.querySelector('#contact')?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
   
   return (
     <section id="ceremonies" className="section-padding bg-white">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 scroll-animation">
           <h2 className="text-3xl md:text-4xl font-serif">Ceremonies We Host</h2>
           <div className="w-24 h-1 bg-gold mx-auto my-4"></div>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
@@ -64,10 +74,10 @@ export default function CeremoniesSection() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ceremonies.map((ceremony) => (
-            <Dialog key={ceremony.id}>
+          {ceremonies.map((ceremony, index) => (
+            <Dialog key={ceremony.id} open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
-                <Card className="overflow-hidden elegant-card hover-scale cursor-pointer">
+                <Card className="overflow-hidden elegant-card hover-scale cursor-pointer scroll-animation" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                   <div className="relative h-64">
                     <img 
                       src={ceremony.image} 
@@ -95,7 +105,13 @@ export default function CeremoniesSection() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-playfair mb-2">{ceremony.name}</h3>
-                    <p>{ceremony.description}</p>
+                    <p className="mb-4">{ceremony.description}</p>
+                    <Button 
+                      onClick={handleBookNow}
+                      className="w-full bg-gold hover:bg-gold/90 text-white"
+                    >
+                      Book Now
+                    </Button>
                   </div>
                 </div>
               </DialogContent>

@@ -79,5 +79,17 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  }
+  },
+  "description": "**URL**: https://lovable.dev/projects/0e46821b-d1b4-4fc5-bc48-021b68f2fa2b",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujeets23/elegant-ceremony-haven.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujeets23/elegant-ceremony-haven/issues"
+  },
+  "homepage": "https://github.com/sujeets23/elegant-ceremony-haven#readme"
 }

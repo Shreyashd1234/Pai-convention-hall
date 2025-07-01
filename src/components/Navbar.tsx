@@ -1,7 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import paiLogo from '../assets/pai hall logo.png';
 
 interface NavLink {
   name: string;
@@ -11,6 +11,7 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
   { name: "Ceremonies", href: "#ceremonies" },
   { name: "Gallery", href: "#gallery" },
   { name: "Testimonials", href: "#testimonials" },
@@ -48,13 +49,24 @@ export default function Navbar() {
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-sm shadow-md py-3' 
-          : 'bg-transparent py-5'
+          ? 'bg-white/90 backdrop-blur-sm shadow-md py-2' 
+          : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-2xl md:text-3xl font-serif text-gold">
-          Elegance Hall
+        <a href="#home" className="flex items-center" onClick={(e) => {
+          e.preventDefault();
+          scrollTo('#home');
+        }}>
+          <div className="relative">
+            <img 
+              src={paiLogo} 
+              alt="PAI Hall Logo" 
+              className={`transition-all duration-300 ${
+                isScrolled ? 'h-16' : 'h-24'
+              } w-auto object-contain`}
+            />
+          </div>
         </a>
         
         {/* Desktop menu */}
@@ -67,13 +79,21 @@ export default function Navbar() {
                 e.preventDefault();
                 scrollTo(link.href);
               }}
-              className="text-charcoal hover:text-gold transition-colors duration-300"
+              className={`font-medium ${
+                isScrolled 
+                  ? 'text-charcoal hover:text-gold' 
+                  : 'text-white hover:text-gold/80'
+              } transition-colors duration-300`}
             >
               {link.name}
             </a>
           ))}
-          <Button variant="default" className="bg-gold hover:bg-gold/90">
-            Book Now
+          <Button 
+            variant="default" 
+            className="bg-gold hover:bg-gold/90 text-white font-medium"
+            onClick={() => window.location.href = 'tel:+919591699558'}
+          >
+            Call Now
           </Button>
         </div>
         
@@ -81,36 +101,42 @@ export default function Navbar() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="md:hidden"
+          className={`md:hidden ${
+            isScrolled ? 'text-charcoal' : 'text-white'
+          }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          <Menu />
+          <Menu className="h-6 w-6" />
         </Button>
       </div>
       
       {/* Mobile menu dropdown */}
-      <div className={`md:hidden bg-white absolute w-full left-0 shadow-md transition-all duration-300 ${
-        mobileMenuOpen ? 'max-h-80 py-4' : 'max-h-0 overflow-hidden'
-      }`}>
-        <div className="container mx-auto px-4 flex flex-col space-y-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo(link.href);
-              }}
-              className="text-charcoal hover:text-gold transition-colors duration-300 py-1"
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg absolute w-full left-0">
+          <div className="container mx-auto px-4 py-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo(link.href);
+                }}
+                className="block py-3 text-charcoal hover:text-gold transition-colors font-medium"
+              >
+                {link.name}
+              </a>
+            ))}
+            <Button 
+              variant="default" 
+              className="w-full mt-4 bg-gold hover:bg-gold/90 text-white font-medium"
+              onClick={() => window.location.href = 'tel:+919591699558'}
             >
-              {link.name}
-            </a>
-          ))}
-          <Button variant="default" className="bg-gold hover:bg-gold/90 w-full">
-            Book Now
-          </Button>
+              Call Now
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }
