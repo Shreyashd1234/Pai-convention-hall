@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import WhatsAppButton from "./WhatsAppButton";
 import hallHeroBg from "@/assets/Hall hero bg.jpg";
+import { useNavigate } from 'react-router-dom';
 
 export default function HeroSection() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +22,11 @@ export default function HeroSection() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleExplore = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/#services');
+  };
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-charcoal">
@@ -44,7 +51,7 @@ export default function HeroSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 animate-slide-in" style={{animationDelay: "0.3s"}}>
           <Button size="lg" className="bg-white text-charcoal hover:bg-gray-100" asChild>
-            <a href="#services">Explore More</a>
+            <a href="#services" onClick={handleExplore}>Explore More</a>
           </Button>
           <WhatsAppButton phoneNumber="918431157922" message="Hi! I just visited your website and want to know more about Pai Convention Hall." />
         </div>

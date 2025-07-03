@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import paiLogo from '../assets/pai hall logo.png';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface NavLink {
   name: string;
@@ -19,9 +20,32 @@ const navLinks: NavLink[] = [
   { name: "Contact", href: "#contact" }
 ];
 
+function smoothScrollTo(element: HTMLElement, duration = 1400) {
+  const start = window.scrollY;
+  const end = element.getBoundingClientRect().top + window.scrollY;
+  const change = end - start;
+  const startTime = performance.now();
+
+  function animateScroll(currentTime: number) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + change * easeInOutCubic(progress));
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll);
+    }
+  }
+  function easeInOutCubic(t: number) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+  requestAnimationFrame(animateScroll);
+}
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,25 +62,40 @@ export default function Navbar() {
     };
   }, []);
 
-  const scrollTo = (href: string) => {
-    setMobileMenuOpen(false);
-    document.querySelector(href)?.scrollIntoView({
-      behavior: 'smooth'
-    });
+  // Smooth scroll to section if hash is present in URL
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash) as HTMLElement;
+      if (el) {
+        setTimeout(() => {
+          smoothScrollTo(el, 700);
+        }, 100); // slight delay to ensure DOM is ready
+      }
+    }
+  }, [location.hash]);
+
+  const handleNavClick = (href: string) => {
+    if (location.pathname !== '/') {
+      navigate('/' + href);
+    } else {
+      window.location.hash = href;
+    }
   };
 
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/90 backdrop-blur-sm shadow-md py-2' 
-          : 'bg-transparent py-4'
+        isHome
+          ? (isScrolled 
+              ? 'bg-white/90 backdrop-blur-sm shadow-md py-2' 
+              : 'bg-transparent py-4')
+          : 'bg-white py-2 shadow-md'
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center" onClick={(e) => {
+      <div className="container mx-auto px-8 flex justify-between items-center">
+        <a href={isHome ? "#home" : "/#home"} className="flex items-center" onClick={(e) => {
           e.preventDefault();
-          scrollTo('#home');
+          handleNavClick('#home');
         }}>
           <div className="relative">
             <img 
@@ -74,15 +113,15 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={link.href}
+              href={isHome ? link.href : `/${link.href}`}
               onClick={(e) => {
                 e.preventDefault();
-                scrollTo(link.href);
+                handleNavClick(link.href);
               }}
               className={`font-medium ${
-                isScrolled 
-                  ? 'text-charcoal hover:text-gold' 
-                  : 'text-white hover:text-gold/80'
+                isHome && !isScrolled 
+                  ? 'text-white hover:text-gold/80'
+                  : 'text-charcoal hover:text-gold'
               } transition-colors duration-300`}
             >
               {link.name}
@@ -117,10 +156,10 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={isHome ? link.href : `/${link.href}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollTo(link.href);
+                  handleNavClick(link.href);
                 }}
                 className="block py-3 text-charcoal hover:text-gold transition-colors font-medium"
               >

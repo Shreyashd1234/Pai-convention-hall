@@ -53,8 +53,14 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} PAI Convention Hall. All rights reserved. <span className="mx-2">|</span> Developed by Nextverse</p>
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm">
+          <div className="mb-2 md:mb-0">
+            &copy; {new Date().getFullYear()} PAI Convention Hall. All rights reserved. <span className="mx-2">|</span> Developed by Nextverse
+          </div>
+          <div className="space-x-6">
+            <a href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-gold transition-colors">Terms & Conditions</a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,14 +1,16 @@
 import { MessageSquare } from "lucide-react";
-import WhatsAppButton from "./WhatsAppButton";
 
 export default function FloatingWhatsApp() {
   return (
-    <div className="sticky-whatsapp">
-      <WhatsAppButton
-        phoneNumber="918431157922"
-        message="Hello! I need quick assistance regarding Pai Convention Hall."
-        className="shadow-xl rounded-full animate-pulse-slow"
-      />
-    </div>
+    <a
+      href="https://wa.me/918431157922?text=Hello!%20I%20need%20quick%20assistance%20regarding%20Pai%20Convention%20Hall."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="sticky-whatsapp bg-[#25D366] hover:bg-[#20BD5C] text-white flex items-center justify-center shadow-xl rounded-full animate-pulse-slow w-14 h-14"
+      style={{ fontSize: 32 }}
+      aria-label="Chat on WhatsApp"
+    >
+      <MessageSquare className="w-8 h-8" />
+    </a>
   );
 }
