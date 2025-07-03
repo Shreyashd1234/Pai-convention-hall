@@ -60,15 +60,14 @@ const categories: Category[] = [
     amenities: [
       "Two spacious changing rooms with dressing tables",
       "Attached bathrooms for convenience",
-      "Comfortable seating arrangement",
-      "Dedicated function spaces"
+      "Comfortable seating arrangement"
     ]
   }
 ];
 
 export default function AmenitiesSpecifications() {
   return (
-    <section className="section-padding bg-ivory">
+    <section id="amenities" className="section-padding bg-ivory">
       <div className="container mx-auto">
         <div className="text-center mb-12 scroll-animation">
           <h2 className="text-3xl md:text-4xl font-serif">Our Amenities</h2>

@@ -159,11 +159,6 @@ Message: ${formData.message}`;
               <Button type="submit" className="bg-gold hover:bg-gold/90" size="lg">
                 Submit Inquiry
               </Button>
-              <WhatsAppButton 
-                phoneNumber="918431157922" 
-                message="Hello! I'm interested in booking your hall for an event." 
-                className="sm:min-w-[200px]"
-              />
             </div>
           </form>
         </div>

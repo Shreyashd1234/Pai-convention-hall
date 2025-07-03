@@ -18,42 +18,18 @@ const services: Service[] = [
   },
   {
     id: 2,
-    name: "Venue Options",
-    description: "Flexible indoor and outdoor spaces for your event, with dedicated areas for dining and ceremonies.",
-    icon: <Building2 className="h-8 w-8 text-gold" />
-  },
-  {
-    id: 3,
-    name: "Entertainment",
-    description: "Professional sound system with microphone for announcements and background music.",
+    name: "Entertainment & Event Essentials",
+    description: "Professional sound system, convenient parking, lift access, and reliable generator backup for a seamless celebration.",
     icon: <Music className="h-8 w-8 text-gold" />
   },
   {
-    id: 4,
-    name: "Parking & Access",
-    description: "Convenient parking space and lift access within the city limits.",
-    icon: <Car className="h-8 w-8 text-gold" />
-  },
-  {
-    id: 5,
-    name: "Power Backup",
-    description: "Uninterrupted power supply with generator backup for your event.",
-    icon: <Power className="h-8 w-8 text-gold" />
-  },
-  {
-    id: 6,
-    name: "Furniture & Setup",
-    description: "Comfortable chairs and a beautiful stage for your ceremonies.",
+    id: 3,
+    name: "Interiors & Guest Comfort",
+    description: "Elegant stage, comfortable seating, and spacious changing rooms with attached bathrooms for your guests' comfort.",
     icon: <Sofa className="h-8 w-8 text-gold" />
   },
   {
-    id: 7,
-    name: "Changing Rooms",
-    description: "Two spacious changing rooms with dressing tables and attached bathrooms.",
-    icon: <Users className="h-8 w-8 text-gold" />
-  },
-  {
-    id: 8,
+    id: 4,
     name: "Unlimited Food",
     description: "Unlimited buffet service with your choice of menu.",
     icon: <Utensils className="h-8 w-8 text-gold" />

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import WhatsAppButton from "./WhatsAppButton";
 
 export default function Footer() {
   const handleSubscribe = (e: React.FormEvent) => {
@@ -50,27 +51,10 @@ export default function Footer() {
               <li>bookings@paiconventionhall.com</li>
             </ul>
           </div>
-          
-          <div className="space-y-4">
-            <h4 className="text-xl font-medium">Newsletter</h4>
-            <form onSubmit={handleSubscribe} className="space-y-2">
-              <Input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white"
-                required
-              />
-              <Button type="submit" className="w-full bg-gold hover:bg-gold/90">
-                Subscribe
-              </Button>
-            </form>
-          </div>
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} PAI Convention Hall. All rights reserved.</p>
-          
+          <p>&copy; {new Date().getFullYear()} PAI Convention Hall. All rights reserved. <span className="mx-2">|</span> Developed by Nextverse</p>
         </div>
       </div>
     </footer>
