@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import paiLogo from '../assets/pai hall logo.png';
@@ -46,6 +46,8 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
+  const [activeSection, setActiveSection] = useState('home');
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,6 +75,27 @@ export default function Navbar() {
       }
     }
   }, [location.hash]);
+
+  useEffect(() => {
+    if (!isHome) return;
+    const handleObserve = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+    const options = { threshold: 0.5 };
+    observerRef.current = new window.IntersectionObserver(handleObserve, options);
+    navLinks.forEach((link) => {
+      const id = link.href.replace('#', '');
+      const section = document.getElementById(id);
+      if (section) observerRef.current!.observe(section);
+    });
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, [isHome]);
 
   const handleNavClick = (href: string) => {
     if (location.pathname !== '/') {
@@ -110,23 +133,33 @@ export default function Navbar() {
         
         {/* Desktop menu */}
         <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={isHome ? link.href : `/${link.href}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
-              className={`font-medium ${
-                isHome && !isScrolled 
-                  ? 'text-white hover:text-gold/80'
-                  : 'text-charcoal hover:text-gold'
-              } transition-colors duration-300`}
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = isHome && activeSection === link.href.replace('#', '');
+            return (
+              <a
+                key={link.name}
+                href={isHome ? link.href : `/${link.href}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
+                className={`font-medium relative px-2 transition-colors duration-300
+                  ${isActive
+                    ? 'text-gold'
+                    : isHome && !isScrolled
+                      ? 'text-white hover:text-gold/80'
+                      : 'text-charcoal hover:text-gold'}
+                `}
+              >
+                {link.name}
+                <span
+                  className={`absolute left-0 -bottom-1 w-full h-0.5 rounded bg-gold transition-all duration-500
+                    ${isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}
+                  style={{ transformOrigin: 'left' }}
+                />
+              </a>
+            );
+          })}
           <Button 
             variant="default" 
             className="bg-gold hover:bg-gold/90 text-white font-medium"
