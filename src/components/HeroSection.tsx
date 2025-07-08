@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import WhatsAppButton from "./WhatsAppButton";
 import paiHeroCover from "@/assets/PAI hero cover.png";
 import { useNavigate } from 'react-router-dom';
+import { Phone } from "lucide-react";
 
 export default function HeroSection() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,7 +44,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
         {/* Main hero text block (unchanged) */}
-        <div className="relative w-full flex flex-col items-center" style={{ transform: 'translateY(0px)' }}>
+        <div className="relative w-full flex flex-col items-center" style={{ transform: 'translateY(80px)' }}>
           <span className="block text-2xl md:text-4xl lg:text-5xl font-serif font-normal mb-0 animate-fade-in" style={{ whiteSpace: 'pre-line', lineHeight: 1.1, zIndex: 2, textShadow: '0 2px 16px rgba(0,0,0,0.5)' }}>
             Where celebrations come to life
             <br />
@@ -72,8 +73,11 @@ export default function HeroSection() {
         </span>
         {/* Buttons: center with respect to 'Elegant. Spacious. Memorable' */}
         <div className="flex flex-col sm:flex-row gap-4 animate-slide-in justify-center items-center mt-64 md:mt-80 lg:mt-[340px]" style={{animationDelay: "0.3s", marginLeft: "-36px"}}>
-          <Button size="lg" className="bg-white text-charcoal hover:bg-gray-100" asChild>
-            <a href="#services" onClick={handleExplore}>Explore More</a>
+          <Button size="lg" className="bg-gold hover:bg-gold/90 text-white font-medium" asChild>
+            <a href="tel:918431157922" className="flex items-center gap-2">
+              <Phone className="w-5 h-5" />
+              Call Now
+            </a>
           </Button>
           <WhatsAppButton phoneNumber="918431157922" message="Hi! I just visited your website and want to know more about Pai Convention Hall." />
         </div>

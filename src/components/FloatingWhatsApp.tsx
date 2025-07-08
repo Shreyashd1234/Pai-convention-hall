@@ -1,4 +1,4 @@
-import { MessageSquare } from "lucide-react";
+import whatsappIcon from "@/assets/icon whatsapp.png";
 
 export default function FloatingWhatsApp() {
   return (
@@ -10,7 +10,7 @@ export default function FloatingWhatsApp() {
       style={{ fontSize: 32 }}
       aria-label="Chat on WhatsApp"
     >
-      <MessageSquare className="w-8 h-8" />
+      <img src={whatsappIcon} alt="WhatsApp" className="w-8 h-8" />
     </a>
   );
 }

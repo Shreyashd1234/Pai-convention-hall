@@ -1,28 +1,28 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Video, Building2, Hotel, Cake, Landmark, Store } from "lucide-react";
+import { Video, Building2, Hotel, Cake, Landmark, Store, Utensils, Home, Star } from "lucide-react";
 
 const facilities = [
   { 
     name: "Part of PAI Group", 
     icon: <Building2 className="h-5 w-5 text-gold" />,
-    description: "Established in April 2023, we are proud to be part of the renowned PAI group"
-  },
-  { 
-    name: "Sister Concerns", 
-    icon: <Hotel className="h-5 w-5 text-gold" />,
-    description: "Hotels, Resorts, Foods, Suvarna Mandir, Landmark, and Bakery"
+    description: "We are proud to be part of the renowned PAI group"
   },
   { 
     name: "Experience", 
     icon: <Cake className="h-5 w-5 text-gold" />,
-    description: "20+ years of catering and hospitality experience since 2005"
+    description: "20+ years of catering and hospitality experience"
   },
   { 
     name: "Location", 
     icon: <Landmark className="h-5 w-5 text-gold" />,
     description: "Conveniently located within the city with easy accessibility"
+  },
+  { 
+    name: "Sister Concerns", 
+    icon: <Hotel className="h-5 w-5 text-gold" />,
+    description: "Pai Hotel, Pai Resorts, Pai Foods, Suvarna Mandir, Landmark, Pai Bakery"
   }
 ];
 
@@ -77,11 +77,7 @@ export default function AboutSection() {
             </div>
             
             <p className="text-lg font-medium">
-              Welcome to PAI Convention Hall, a prestigious addition to the PAI group family. Established in April 2023, we bring over two decades of catering and hospitality expertise to create unforgettable celebrations.
-            </p>
-            
-            <p className="text-lg font-medium">
-              As part of the renowned PAI group, we share the legacy of excellence with our sister concerns including hotels, resorts, foods, Suvarna Mandir, Landmark, and bakery. Our commitment to quality service and attention to detail ensures that every event becomes a cherished memory.
+              Welcome to PAI Convention Hall, a prestigious addition to the PAI group. We bring over two decades of catering and hospitality expertise to create unforgettable celebrations.
             </p>
             
             <div className="grid grid-cols-2 gap-6 mt-8">
@@ -96,7 +92,7 @@ export default function AboutSection() {
                   </div>
                   <div>
                     <h3 className="font-bold text-charcoal">{facility.name}</h3>
-                    <p className="text-sm font-medium text-gray-600">{facility.description}</p>
+                    {facility.description && <p className="text-sm font-medium text-gray-600">{facility.description}</p>}
                   </div>
                 </div>
               ))}

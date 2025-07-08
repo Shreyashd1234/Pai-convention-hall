@@ -8,7 +8,6 @@ import WhatsAppButton from "./WhatsAppButton";
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     eventType: "",
     date: "",
@@ -24,14 +23,7 @@ export default function ContactSection() {
     e.preventDefault();
     
     // Create WhatsApp message with form details
-    const whatsappMessage = `New Inquiry from Website:
-    
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Event Type: ${formData.eventType}
-Event Date: ${formData.date}
-Message: ${formData.message}`;
+    const whatsappMessage = `New Inquiry from Website:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEvent Type: ${formData.eventType}\nEvent Date: ${formData.date}\nMessage: ${formData.message}`;
 
     // Encode the message for WhatsApp URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -48,7 +40,6 @@ Message: ${formData.message}`;
     // Reset form
     setFormData({
       name: "",
-      email: "",
       phone: "",
       eventType: "",
       date: "",
@@ -61,12 +52,12 @@ Message: ${formData.message}`;
       <div className="container mx-auto">
         <div className="text-center mb-12 scroll-animation">
           <h2 className="text-3xl md:text-4xl font-serif">Contact Us</h2>
+          <p className="text-base text-gray-500 mt-1">(Your inquiry will be sent to us via WhatsApp)</p>
           <div className="w-24 h-1 bg-gold mx-auto my-4"></div>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
             Let us help you plan your perfect event. Reach out to us for inquiries and bookings.
           </p>
         </div>
-        
         <div className="max-w-3xl mx-auto scroll-animation" style={{ animationDelay: "0.2s" }}>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -81,20 +72,6 @@ Message: ${formData.message}`;
                   required
                 />
               </div>
-              
-              <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.4s" }}>
-                <Label htmlFor="email">Email</Label>
-                <Input 
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your email"
-                  required
-                />
-              </div>
-              
               <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.5s" }}>
                 <Label htmlFor="phone">Phone</Label>
                 <Input 
@@ -106,7 +83,6 @@ Message: ${formData.message}`;
                   required
                 />
               </div>
-              
               <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.6s" }}>
                 <Label htmlFor="eventType">Event Type</Label>
                 <select
@@ -126,7 +102,6 @@ Message: ${formData.message}`;
                   <option value="Other">Other</option>
                 </select>
               </div>
-              
               <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.7s" }}>
                 <Label htmlFor="date">Event Date</Label>
                 <Input 
@@ -140,7 +115,6 @@ Message: ${formData.message}`;
                 />
               </div>
             </div>
-            
             <div className="space-y-2 scroll-animation" style={{ animationDelay: "0.8s" }}>
               <Label htmlFor="message">Message</Label>
               <textarea
@@ -154,9 +128,8 @@ Message: ${formData.message}`;
                 required
               ></textarea>
             </div>
-            
             <div className="flex flex-col sm:flex-row gap-4 justify-center scroll-animation" style={{ animationDelay: "0.9s" }}>
-              <Button type="submit" className="bg-gold hover:bg-gold/90" size="lg">
+              <Button type="submit" className="bg-green-600 hover:bg-green-700" size="lg">
                 Submit Inquiry
               </Button>
             </div>

@@ -1,4 +1,3 @@
-
 import { MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -21,7 +20,7 @@ export default function WhatsAppButton({
   return (
     <Button 
       onClick={handleClick}
-      className={`bg-[#25D366] hover:bg-[#20BD5C] text-white font-medium flex items-center gap-2 shadow-lg pulse-animation ${className}`}
+      className={`bg-[#25D366] hover:bg-[#20BD5C] text-white font-medium flex items-center gap-2 shadow-lg ${className}`}
     >
       <MessageSquare className="h-5 w-5" />
       <span>WhatsApp Us</span>

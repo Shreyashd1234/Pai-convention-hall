@@ -48,7 +48,7 @@ export default function Footer() {
               <li>Behind Nagshanti Showroom</li>
               <li>Udyambag,Belgaum, Karnataka 590008</li>
               <li>+91 95916 99558</li>
-              <li>bookings@paiconventionhall.com</li>
+              <li>paiconvention@gmail.com</li>
             </ul>
           </div>
         </div>

@@ -42,7 +42,7 @@ export default function LocationSection() {
                   <div>
                     <h3 className="font-medium mb-1">Contact</h3>
                     <p>Phone: +91 95916 99558</p>
-                    <p>Email: bookings@paiconventionhall.com</p>
+                    <p>Email: paiconvention@gmail.com</p>
                   </div>
                 </div>
               </CardContent>

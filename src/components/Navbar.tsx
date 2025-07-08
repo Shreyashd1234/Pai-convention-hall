@@ -12,11 +12,10 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
+  { name: "Amenities", href: "#amenities" },
   { name: "Ceremonies", href: "#ceremonies" },
   { name: "Gallery", href: "#gallery" },
   { name: "Testimonials", href: "#testimonials" },
-  { name: "Amenities", href: "#amenities" },
   { name: "Contact", href: "#contact" }
 ];
 
@@ -130,7 +129,6 @@ export default function Navbar() {
             />
           </div>
         </a>
-        
         {/* Desktop menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => {
@@ -168,7 +166,6 @@ export default function Navbar() {
             Call Now
           </Button>
         </div>
-        
         {/* Mobile menu button */}
         <Button 
           variant="ghost" 
@@ -181,7 +178,6 @@ export default function Navbar() {
           <Menu className="h-6 w-6" />
         </Button>
       </div>
-      
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute w-full left-0">

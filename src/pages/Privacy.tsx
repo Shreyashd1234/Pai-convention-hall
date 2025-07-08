@@ -16,7 +16,7 @@ const Privacy = () => (
         <h2 className="text-2xl font-semibold mt-8 mb-2">Pai Convention Hall Privacy Practices</h2>
         <p className="mb-4">At Pai Convention Hall, we are committed to safeguarding your privacy. All information collected is handled with the utmost care and confidentiality. If you have any questions about our privacy practices, please contact us directly.</p>
         <h2 className="text-2xl font-semibold mt-8 mb-2">Contact</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at bookings@paiconventionhall.com.</p>
+        <p>If you have any questions about this Privacy Policy, please contact us at paiconvention@gmail.com.</p>
       </div>
     </main>
     <Footer />

@@ -16,7 +16,7 @@ const Terms = () => (
         <h2 className="text-2xl font-semibold mt-8 mb-2">Changes to Terms</h2>
         <p className="mb-4">We reserve the right to update these terms at any time. Continued use of the website constitutes acceptance of the revised terms.</p>
         <h2 className="text-2xl font-semibold mt-8 mb-2">Contact</h2>
-        <p>If you have any questions about these Terms & Conditions, please contact us at bookings@paiconventionhall.com.</p>
+        <p>If you have any questions about these Terms & Conditions, please contact us at paiconvention@gmail.com.</p>
       </div>
     </main>
     <Footer />
