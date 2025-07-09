@@ -37,13 +37,15 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative scroll-animation">
             <div 
-              className="w-full h-[500px] bg-charcoal/10 rounded-lg shadow-lg flex items-center justify-center"
+              className="w-full h-[500px] bg-charcoal/10 rounded-lg shadow-lg flex items-center justify-center relative"
             >
               <img 
                 src={paiAboutUsImage}
                 alt="PAI Convention Hall About Us"
                 className="w-full h-full object-cover rounded-lg"
               />
+              {/* Black overlay for better button visibility */}
+              <div className="absolute inset-0 bg-black/50 rounded-lg pointer-events-none"></div>
             </div>
             
             {/* Video Walkthrough Button */}
