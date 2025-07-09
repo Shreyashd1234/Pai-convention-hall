@@ -29,7 +29,7 @@ export default function ContactSection() {
     const encodedMessage = encodeURIComponent(whatsappMessage);
     
     // Open WhatsApp with the message
-    window.open(`https://wa.me/918431157922?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/9591699558?text=${encodedMessage}`, '_blank');
     
     // Show success toast
     toast({

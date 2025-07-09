@@ -5,6 +5,7 @@ import { Video, Building2, Hotel, Cake, Landmark, Store, Utensils, Home, Star } 
 import paiPromoVideo from "@/assets/Pai promo.mp4";
 import hallInterior from "@/assets/hall-interior.jpg";
 import paiHeroCover from "@/assets/PAI hero cover.png";
+import paiAboutUsImage from "@/assets/pai about us image.jpg";
 
 const facilities = [
   { 
@@ -39,8 +40,8 @@ export default function AboutSection() {
               className="w-full h-[500px] bg-charcoal/10 rounded-lg shadow-lg flex items-center justify-center"
             >
               <img 
-                src={paiHeroCover}
-                alt="PAI Convention Hall Hero Cover"
+                src={paiAboutUsImage}
+                alt="PAI Convention Hall About Us"
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>

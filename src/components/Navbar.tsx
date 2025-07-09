@@ -161,7 +161,7 @@ export default function Navbar() {
           <Button 
             variant="default" 
             className="bg-gold hover:bg-gold/90 text-white font-medium"
-            onClick={() => window.location.href = 'tel:+919591699558'}
+            onClick={() => window.location.href = 'tel:9591699558'}
           >
             Call Now
           </Button>
@@ -199,7 +199,7 @@ export default function Navbar() {
             <Button 
               variant="default" 
               className="w-full mt-4 bg-gold hover:bg-gold/90 text-white font-medium"
-              onClick={() => window.location.href = 'tel:+919591699558'}
+              onClick={() => window.location.href = 'tel:9591699558'}
             >
               Call Now
             </Button>

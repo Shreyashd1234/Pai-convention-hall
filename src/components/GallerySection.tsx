@@ -24,9 +24,8 @@ const galleryImages: GalleryImage[] = [
   { id: 4, alt: "Gallery Image 4", image: gallery4 },
   { id: 5, alt: "Gallery Image 5", image: gallery5 },
   { id: 6, alt: "Haldi Ceremony 2", image: haldi1 },
-  { id: 7, alt: "Wedding Moment 1", image: wedding1 },
-  { id: 8, alt: "Wedding Moment 2", image: wedding2 },
-  { id: 9, alt: "Wedding Moment 3", image: wedding3 }
+  { id: 7, alt: "Wedding Moment 2", image: wedding2 },
+  { id: 8, alt: "Wedding Moment 3", image: wedding3 }
 ];
 
 export default function GallerySection() {
@@ -43,35 +42,17 @@ export default function GallerySection() {
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {galleryImages.map((image, index) => (
-            <Dialog key={image.id}>
-              <DialogTrigger asChild>
-                <div 
-                  className="relative h-64 overflow-hidden rounded-lg cursor-pointer hover-scale"
-                  style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-                >
-                  <img 
-                    src={image.image} 
-                    alt={image.alt} 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="ceremony-overlay">
-                     <span className="text-white text-lg">View Details</span>
-                   </div>
-                </div>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[800px]">
-                <div className="w-full">
-                  <div className="aspect-video overflow-hidden rounded-md">
-                    <img 
-                      src={image.image} 
-                      alt={image.alt}
-                      className="w-full h-full object-cover" 
-                    />
-                  </div>
-                  <p className="mt-2 text-center">{image.alt}</p>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <div 
+              key={image.id}
+              className="relative h-64 overflow-hidden rounded-lg"
+              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+            >
+              <img 
+                src={image.image} 
+                alt={image.alt} 
+                className="w-full h-full object-cover"
+              />
+            </div>
           ))}
         </div>
       </div>
