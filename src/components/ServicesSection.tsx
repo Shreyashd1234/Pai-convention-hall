@@ -39,10 +39,9 @@ const amenities: AmenityCategory[] = [
     name: "Entertainment & Audio",
     icon: <Music className="h-8 w-8 text-gold" />,
     points: [
-      "Premium sound system for a lively atmosphere",
+      "Sound system for a lively atmosphere",
       "Microphones for announcements and performances",
-      "On-site technical support",
-      "Flexible audio setup to suit your needs"
+      "On-site technical support"
     ]
   },
   {

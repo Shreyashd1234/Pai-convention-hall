@@ -189,6 +189,7 @@ export default function Navbar() {
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick(link.href);
+                  setMobileMenuOpen(false); // Close mobile menu on section click
                 }}
                 className="block py-3 text-charcoal hover:text-gold transition-colors font-medium"
               >
