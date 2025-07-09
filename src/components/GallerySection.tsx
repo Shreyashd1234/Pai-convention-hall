@@ -5,6 +5,7 @@ import gallery1 from "@/assets/gallery1.jpg";
 import gallery2 from "@/assets/gallery2.jpg";
 import gallery3 from "@/assets/gallery3.jpg";
 import gallery4 from "@/assets/gallery4.jpg";
+import gallery5 from "@/assets/gallery5.jpg";
 import haldi1 from "@/assets/haldi1.jpg";
 import wedding1 from "@/assets/wedding1.jpg";
 import wedding2 from "@/assets/wedding2.jpg";
@@ -21,10 +22,11 @@ const galleryImages: GalleryImage[] = [
   { id: 2, alt: "Gallery Image 2", image: gallery2 },
   { id: 3, alt: "Gallery Image 3", image: gallery3 },
   { id: 4, alt: "Gallery Image 4", image: gallery4 },
-  { id: 5, alt: "Haldi Ceremony 1", image: haldi1 },
-  { id: 6, alt: "Wedding 1", image: wedding1 },
-  { id: 7, alt: "Wedding 2", image: wedding2 },
-  { id: 8, alt: "Wedding 3", image: wedding3 }
+  { id: 5, alt: "Gallery Image 5", image: gallery5 },
+  { id: 6, alt: "Haldi Ceremony 2", image: haldi1 },
+  { id: 7, alt: "Wedding Moment 1", image: wedding1 },
+  { id: 8, alt: "Wedding Moment 2", image: wedding2 },
+  { id: 9, alt: "Wedding Moment 3", image: wedding3 }
 ];
 
 export default function GallerySection() {
