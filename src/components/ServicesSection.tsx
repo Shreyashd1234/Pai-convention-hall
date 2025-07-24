@@ -49,7 +49,7 @@ const amenities: AmenityCategory[] = [
     name: "Guest Comfort",
     icon: <Sofa className="h-8 w-8 text-gold" />,
     points: [
-      "Two changing rooms with dressing tables",
+      "Two changing rooms with dressing table on each floor",
       "Attached bathrooms for convenience",
       "Plush, comfortable seating for all guests"
     ]
@@ -69,7 +69,6 @@ const amenities: AmenityCategory[] = [
     name: "Accessibility & Parking",
     icon: <Car className="h-8 w-8 text-gold" />,
     points: [
-      "Easy access for elderly and differently-abled guests",
       "Large, secure parking area",
       "Convenient drop-off zone at the entrance"
     ]
