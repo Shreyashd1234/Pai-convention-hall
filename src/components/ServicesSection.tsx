@@ -2,11 +2,16 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Utensils, Building2, Music, Car, Theater, Sofa } from "lucide-react";
 
+interface AmenityPoint {
+  text: string;
+  highlight?: boolean;
+}
+
 interface AmenityCategory {
   id: number;
   name: string;
   icon: React.ReactNode;
-  points: string[];
+  points: (string | AmenityPoint)[];
 }
 
 const amenities: AmenityCategory[] = [
