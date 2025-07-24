@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+ import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import paiLogo from '../assets/pai hall logo.png';
+import paiLogo from '@/assets/pai hall logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface NavLink {
@@ -13,10 +13,10 @@ const navLinks: NavLink[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Amenities", href: "#amenities" },
+  { name: "Contact", href: "#contact" },
   { name: "Ceremonies", href: "#ceremonies" },
   { name: "Gallery", href: "#gallery" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" }
+  { name: "Testimonials", href: "#testimonials" }
 ];
 
 function smoothScrollTo(element: HTMLElement, duration = 1400) {

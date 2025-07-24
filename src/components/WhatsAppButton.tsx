@@ -20,7 +20,7 @@ export default function WhatsAppButton({
   return (
     <Button 
       onClick={handleClick}
-      className={`bg-[#25D366] hover:bg-[#20BD5C] text-white font-medium flex items-center gap-2 shadow-lg ${className}`}
+      className={`bg-gold hover:bg-gold/90 text-white font-medium flex items-center gap-2 shadow-lg ${className}`}
     >
       <MessageSquare className="h-5 w-5" />
       <span>WhatsApp Us</span>

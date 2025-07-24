@@ -40,11 +40,11 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <ContactSection />
       <CeremoniesSection />
       <GallerySection />
       <TestimonialsSection />
       <LocationSection />
-      <ContactSection />
       <Footer />
       <FloatingWhatsApp />
     </div>

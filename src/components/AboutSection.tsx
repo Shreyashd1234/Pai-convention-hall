@@ -4,15 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Video, Building2, Hotel, Cake, Landmark, Store, Utensils, Home, Star } from "lucide-react";
 import paiPromoVideo from "@/assets/Pai promo.mp4";
 import hallInterior from "@/assets/hall-interior.jpg";
-import paiHeroCover from "@/assets/PAI hero cover.png";
+import paiHeroCover from "@/assets/PAI hero cover.jpg";
 import paiAboutUsImage from "@/assets/pai about us image.jpg";
 
 const facilities = [
-  { 
-    name: "Part of PAI Group", 
-    icon: <Building2 className="h-5 w-5 text-gold" />,
-    description: "We are proud to be part of the renowned PAI group"
-  },
   { 
     name: "Experience", 
     icon: <Cake className="h-5 w-5 text-gold" />,
@@ -22,11 +17,6 @@ const facilities = [
     name: "Location", 
     icon: <Landmark className="h-5 w-5 text-gold" />,
     description: "Conveniently located within the city with easy accessibility"
-  },
-  { 
-    name: "Sister Concerns", 
-    icon: <Hotel className="h-5 w-5 text-gold" />,
-    description: "Pai Hotel, Pai Resorts, Pai Foods, Suvarna Mandir, Landmark, Pai Bakery"
   }
 ];
 
@@ -62,15 +52,15 @@ export default function AboutSection() {
               </DialogTrigger>
               <DialogContent className="max-w-4xl">
                 <div className="aspect-video">
-                  <video
-                    src={paiPromoVideo}
-                    controls
-                    poster="/images/hall-interior.jpg"
-                    style={{ width: "100%", height: "100%", borderRadius: "0.5rem", background: "#000" }}
-                    autoPlay
-                  >
-                    Your browser does not support the video tag.
-                  </video>
+                  <iframe
+                    src="https://drive.google.com/file/d/1R8AxVd7o-tFAsO5aI_ENNxHE82T1DWlG/preview"
+                    width="100%"
+                    height="100%"
+                    allow="autoplay"
+                    style={{ borderRadius: "0.5rem", background: "#000" }}
+                    allowFullScreen
+                    title="Watch Tour Video"
+                  ></iframe>
                 </div>
               </DialogContent>
             </Dialog>
