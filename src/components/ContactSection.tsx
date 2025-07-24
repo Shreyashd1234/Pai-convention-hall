@@ -129,7 +129,7 @@ export default function ContactSection() {
               ></textarea>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center scroll-animation" style={{ animationDelay: "0.9s" }}>
-              <Button type="submit" className="bg-green-600 hover:bg-green-700" size="lg">
+              <Button type="submit" className="bg-[#8B5C2A] hover:bg-[#6e431c] text-white font-medium" size="lg">
                 Submit Inquiry
               </Button>
             </div>
