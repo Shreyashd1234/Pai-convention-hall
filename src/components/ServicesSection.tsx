@@ -17,7 +17,6 @@ const amenities: AmenityCategory[] = [
     points: [
       "Spacious, modern facilities for seamless celebrations",
       "Beautifully designed stage for ceremonies and performances",
-      "Lift for easy accessibility",
       "Generator backup for uninterrupted events",
       "Secure, ample parking for all guests"
     ]
@@ -31,7 +30,7 @@ const amenities: AmenityCategory[] = [
       "Unlimited buffet with customizable menus",
       "Expert catering and menu planning",
       "Continuous food service throughout your event",
-      "No hall rent for bookings above ₹35,000"
+      { text: "No hall rent for bookings above ₹35,000", highlight: true }
     ]
   },
   {
@@ -69,6 +68,7 @@ const amenities: AmenityCategory[] = [
     name: "Accessibility & Parking",
     icon: <Car className="h-8 w-8 text-gold" />,
     points: [
+      "Lift for easy accessibility",
       "Large, secure parking area",
       "Convenient drop-off zone at the entrance"
     ]
@@ -100,7 +100,11 @@ export default function ServicesSection() {
                 <h3 className="text-xl font-medium mb-4">{category.name}</h3>
                 <ul className="space-y-2 text-gray-600 text-left mx-auto max-w-xs font-normal">
                   {category.points.map((point, i) => (
-                    <li key={i} className="leading-relaxed">{point}</li>
+                    typeof point === 'string' ? (
+                      <li key={i} className="leading-relaxed">{point}</li>
+                    ) : (
+                      <li key={i} className="leading-relaxed font-bold text-black">{point.text}</li>
+                    )
                   ))}
                 </ul>
               </CardContent>

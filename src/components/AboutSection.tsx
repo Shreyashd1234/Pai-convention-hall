@@ -76,11 +76,11 @@ export default function AboutSection() {
               Welcome to PAI Convention Hall, a prestigious addition to the PAI group. We bring over two decades of catering and hospitality expertise to create unforgettable celebrations.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 items-stretch">
               {facilities.map((facility, index) => (
                 <div 
                   key={facility.name} 
-                  className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left space-y-2 md:space-y-0 md:space-x-4 border border-gold/30 rounded-xl p-4 bg-white/60 shadow-sm mb-4 last:mb-0 scroll-animation"
+                  className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left space-y-2 md:space-y-0 md:space-x-4 border border-gold/30 rounded-xl p-4 bg-white/60 shadow-sm mb-4 last:mb-0 scroll-animation h-full"
                   style={{ animationDelay: `${0.4 + index * 0.1}s` }}
                 >
                   <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0 mb-2 md:mb-0">
